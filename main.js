@@ -90,7 +90,7 @@ function init() {
         title: 'Zasticena podrucija',
         source: new ol.source.TileWMS({
             url: 'http://localhost:8585/geoserver/wms',
-            params: { 'LAYERS': 'cite:Zasticena_podrucija', 'TILED': true },
+            params: { 'LAYERS': 'cite:Zasticena_podrucja', 'TILED': true },
             serverType: 'geoserver',
         }),
         visible: false,
@@ -110,7 +110,7 @@ function init() {
         title: 'Zapadna Srbija',
         source: new ol.source.TileWMS({
             url: 'http://localhost:8585/geoserver/wms',
-            params: { 'LAYERS': 'cite:uzice', 'TILED': true },
+            params: { 'LAYERS': 'cite:Zapad', 'TILED': true },
             serverType: 'geoserver',
         }),
         visible: false,
