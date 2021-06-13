@@ -1,6 +1,7 @@
 window.onload = init;
 
 function init() {
+
     const map = new ol.Map({
         view: new ol.View({
             center: [2350563.8790858407, 5503261.94556951],
@@ -20,13 +21,18 @@ function init() {
         title: 'OSM Standardna mapa'
     })
 
+    const yaex = [-20037508.342789244, -20037508.342789244, 20037508.342789244, 20037508.342789244];
+    proj4.defs("EPSG:3395", "+proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs");
+    //haven't figured how to set extent and map this, also yandex started behaving weirdly
+    // ol.proj.get('EPSG:3395').setExtent(yaex);
+
     const yandexMapStandard = new ol.layer.Tile({
         source: new ol.source.XYZ({
             url: 'http://vec0{1-4}.maps.yandex.net/tiles?l=map&x={x}&y={y}&z={z}',
             projection: 'EPSG:3395',
             crossOrigin: null,
             tileGrid: ol.tilegrid.createXYZ({
-                extent: [-20037508.342789244, -20037508.342789244, 20037508.342789244, 20037508.342789244]
+                extent: yaex
             })
         }),
         visible: false,
